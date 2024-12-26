@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Müşteri Segmentasyonu Projesi</title>
+    <link id="theme-style" rel="stylesheet" href="style/indexStyle.css"> <!-- Varsayılan olarak normal mod -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link id="card-style" rel="stylesheet" href="style/cardStyle.css">
+
+    <script src="script/language.js"></script>
+    <script src="script/cardLanguage.js"></script>
+    <script src="script/darkMode.js" defer></script> <!-- Gece Modu JS -->
+</head>
+<body>
+    <!-- Başlık ve Navbar -->
+    <header>
+        <div class="navbar">
+            <h1 id="title">Müşteri Segmentasyonu Projesi</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="home-link">Ana Sayfa</a></li>
+                    <li><a href="hakkında.html" id="about-link">Hakkında</a></li>
+                    <li><a href="veriMadenciliği.html" id="data-mining-link">Veri Madenciliği</a></li
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Kontroller -->
+    <div class="controls">
+        <div class="language-selector">
+            <label id="language-text" for="language">Dil: </label>
+            <select id="language" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="tr">Türkçe</option>
+            </select>
+        </div>
+        <div class="dark-mode-toggle">
+            <button id="dark-mode-btn" onclick="toggleDarkMode()">Gece Modu</button>
+        </div>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Müşteri Segmentasyonu Projesi. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

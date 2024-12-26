@@ -1,0 +1,86 @@
+/* Flip Kartlar - Dark Mode */
+.flip-card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px; /* Kartlar arasındaki boşluk */
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 550px;
+    perspective: 1000px;
+    font-family: sans-serif;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+    color: #e0e0e0; /* Yazı rengi beyaz */
+}
+
+.description {
+    font-size: 1em;
+    text-align: center;
+    color: #b0b0b0; /* Daha yumuşak ve okunabilir renk */
+    margin: 5px 20px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.7);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid #444; /* Koyu sınır rengi */
+    border-radius: 1rem;
+}
+
+.flip-card-front {
+    background: linear-gradient(120deg, #333 50%, #444 70%, #555 90%);
+    color: #e0e0e0; /* Sakin ve göz yormayan yazı rengi */
+}
+
+.flip-card-back {
+    background: linear-gradient(120deg, #222 50%, #333 70%, #444 90%);
+    color: #e0e0e0;
+    transform: rotateY(180deg);
+}
+
+/* Resim ve içerik düzeni */
+.card-image {
+    width: calc(100% - 20px); /* Resmin genişliğini, yanlardan boşluk bırakacak şekilde ayarladık */
+    height: 45%; /* Resmin yüksekliğini %50'ye ayarladık */
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Daha belirgin gölge efekti */
+    margin: 0 10px 25px 10px;
+    filter: opacity(0.85); /* Resmin hafif soluk görünümü */
+}
+
+/* İçerik düzeni */
+.card-content {
+    padding: 15px; /* Kart içeriğine boşluk ekledik */
+    text-align: center;
+    color: #e0e0e0; /* Yazı rengini beyaz yaptık */
+}
