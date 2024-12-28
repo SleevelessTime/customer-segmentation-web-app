@@ -88,13 +88,11 @@ Rapora [buradan erişebilirsiniz](https://github.com/SleevelessTime/customer-seg
 ---
 
 ## 👥 Proje Ekibi
-- **Can Çebi** (cancebi21@istanbularel.edu.tr)
 - **Oğuzhan Cem Yücel** (oguzhancemyucel21@istanbularel.edu.tr)
+- **Can Çebi** (cancebi21@istanbularel.edu.tr)
 
 ---
 
 ## 📚 Kaynaklar
 - Kaggle Customer Segmentation Dataset: [Dataset Link](https://www.kaggle.com/datasets/vetrirah/customer)
 - Scikit-Learn Dokümantasyonu: [Scikit-Learn](https://scikit-learn.org/stable/)
-
-Teşekkürler: Projeye değerli katkıları ve yönlendirmeleri için Sibel Birtane Akar hocamıza teşekkür ederiz.
