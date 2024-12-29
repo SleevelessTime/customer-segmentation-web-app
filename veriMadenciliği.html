@@ -4,34 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Müşteri Segmentasyonu Projesi</title>
-    <link id="theme-style" rel="stylesheet" href="style/indexStyle.css"> <!-- Varsayılan olarak normal mod -->
+    <link id="theme-style" rel="stylesheet" href="style/indexStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link id="card-style" rel="stylesheet" href="style/cardStyle.css">
+    <link id="graph-style" rel="stylesheet" href="style/graphStyle.css">
+    <script src="script/darkMode.js" defer></script>
+    <script src="script/graphStyle.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="script/language.js"></script>
-    <script src="script/cardLanguage.js"></script>
-    <script src="script/darkMode.js" defer></script> <!-- Gece Modu JS -->
 </head>
 <body>
-    <!-- Başlık ve Navbar -->
     <header>
         <div class="navbar">
             <h1 id="title">Müşteri Segmentasyonu Projesi</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html" id="home-link">Ana Sayfa</a></li>
-                    <li><a href="hakkında.html" id="about-link">Hakkında</a></li>
-                    <li><a href="veriMadenciliği.html" id="data-mining-link">Veri Madenciliği</a></li>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkında.html">Hakkında</a></li>
+                    <li><a href="veriMadenciliği.html">Veri Madenciliği</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Kontroller -->
     <div class="controls">
         <div class="language-selector">
-            <label id="language-text" for="language">Dil: </label>
-            <select id="language" onchange="changeLanguage()">
+            <label for="language">Dil: </label>
+            <select id="language">
                 <option value="en">English</option>
                 <option value="tr">Türkçe</option>
             </select>
@@ -41,12 +40,27 @@
         </div>
     </div>
 
-    <!-- Ana İçerik -->
     <main>
+        <section id="graph-section">
+            <h2>Grafik Seçimi</h2>
+            <div class="graph-grid">
+                <button class="graph-btn" onclick="showGraph('scatter-4-values')">4 Değerli Dağılım</button>
+                <button class="graph-btn" onclick="showGraph('scatter-2-values')">2 Değerli Dağılım</button>
+                <button class="graph-btn" onclick="showGraph('confusion-matrix')">Confusion Matrix</button>
+                <button class="graph-btn" onclick="showGraph('feature-importance')">Özellik Önem Sıralaması</button>
+                <button class="graph-btn" onclick="showGraph('correlation-matrix')">Korelasyon Matrisi</button>
+                <button class="graph-btn" onclick="showGraph('profession-distribution')">Profession Dağılımı</button>
+            </div>
+        </section>
 
+        <section id="graph-display">
+            <h2>Grafik Görüntüleme</h2>
+            <canvas id="graphCanvas" width="800" height="400"></canvas>
+                <p>Seçilen grafik burada gösterilecek.</p>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Müşteri Segmentasyonu Projesi. Tüm hakları saklıdır.</p>
     </footer>
