@@ -7,7 +7,7 @@
 }
 
 .graph-btn {
-    background: linear-gradient(135deg, #6200ea, #9c27b0);
+    background: linear-gradient(135deg, #388e3c, #4caf50, #245733);
     color: white;
     border: none;
     padding: 15px 20px;
@@ -48,7 +48,7 @@ canvas {
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
-    background-color: rgb(61, 55, 55);
+    background: linear-gradient(-20deg, #333, #000000);
 }
 
 body.dark-mode canvas {
