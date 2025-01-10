@@ -1,0 +1,118 @@
+<!-- templates/hakkında.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ texts.page_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link id="theme-css" rel="stylesheet" href="{{ url_for('static', filename='css/indexStyle.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link id="card-css" rel="stylesheet" href="{{ url_for('static', filename='css/cardStyle.css') }}">
+    <link id="graph-css" rel="stylesheet" href="{{ url_for('static', filename='css/graphStyle.css') }}">
+
+    <script src="{{ url_for('static', filename='js/darkMode.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <h1>{{ common.title }}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">{{ common.home }}</a></li>
+                    <li><a href="{{ url_for('hakkinda') }}">{{ common.about }}</a></li>
+                    <li><a href="{{ url_for('veriMadenciligi') }}">{{ common.data_mining }}</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Kontroller -->
+    <div class="controls">
+        <form action="{{ url_for('change_language') }}" method="POST" style="display:inline;">
+            <label for="language">{{ common.language_label }}</label>
+            <select name="language" onchange="this.form.submit()">
+                <option value="tr" {% if session['lang'] == 'tr' %}selected{% endif %}>Türkçe</option>
+                <option value="en" {% if session['lang'] == 'en' %}selected{% endif %}>English</option>
+            </select>
+        </form>
+        <button id="dark-mode-btn" onclick="toggleDarkMode()">{{ common.dark_mode_button }}</button>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main>
+        <!-- Flip Kartlar -->
+        <div class="flip-card-container">
+            <!-- Kart 1 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='images/oguzhanCemYucel.jpg') }}" alt="Oğuzhan Cem Yücel" class="card-image">
+                        <p class="title">{{ texts.name1 }}</p>
+                        <p class="description">{{ texts.role1 }}</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">{{ texts.about_title1 }}</p>
+                        <p>{{ texts.about_text1 }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kart 2 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='images/canCebi.jpg') }}" alt="Can Çebi" class="card-image">
+                        <p class="title">{{ texts.name2 }}</p>
+                        <p class="description">{{ texts.role2 }}</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">{{ texts.about_title2 }}</p>
+                        <p>{{ texts.about_text2 }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diğer İçerikler -->
+        <br>
+        <section class="project-section">
+            <h2>{{ texts.project_goal_title }}</h2>
+            <p>{{ texts.project_goal_text }}</p>
+        </section>
+
+        <section class="project-section">
+            <h2>{{ texts.used_tech_title }}</h2>
+            <ul>
+                <li>{{ texts.used_tech_li1 }}</li>
+                <li>{{ texts.used_tech_li2 }}</li>
+                <li>{{ texts.used_tech_li3 }}</li>
+                <li>{{ texts.used_tech_li4 }}</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>{{ texts.achievements_title }}</h2>
+            <ul>
+                <li>{{ texts.ach_list1 }}</li>
+                <li>{{ texts.ach_list2 }}</li>
+                <li>{{ texts.ach_list3 }}</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>{{ texts.future_title }}</h2>
+            <p>{{ texts.future_text }}</p>
+        </section>
+        <br>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>{{ common.footer }}</p>
+    </footer>
+</body>
+</html>

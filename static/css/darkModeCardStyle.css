@@ -1,8 +1,10 @@
 /* Flip Kartlar - Dark Mode */
 .flip-card-container {
     display: flex;
+    flex-wrap: wrap; /* Mobil uyumluluk için esneklik sağlandı */
     justify-content: space-around;
     gap: 20px; /* Kartlar arasındaki boşluk */
+    padding: 20px; /* Konteyner dışına boşluk eklendi */
 }
 
 .flip-card {
@@ -10,22 +12,7 @@
     width: 300px;
     height: 550px;
     perspective: 1000px;
-    font-family: sans-serif;
-}
-
-.title {
-    font-size: 1.5em;
-    font-weight: 900;
-    text-align: center;
-    margin: 0;
-    color: #e0e0e0; /* Yazı rengi beyaz */
-}
-
-.description {
-    font-size: 1em;
-    text-align: center;
-    color: #b0b0b0; /* Daha yumuşak ve okunabilir renk */
-    margin: 5px 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .flip-card-inner {
@@ -47,17 +34,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border: 1px solid #444; /* Koyu sınır rengi */
     border-radius: 1rem;
+    padding: 15px;
 }
 
 .flip-card-front {
     background: linear-gradient(120deg, #333 50%, #444 70%, #555 90%);
-    color: #e0e0e0; /* Sakin ve göz yormayan yazı rengi */
+    color: #e0e0e0; /* Yazı rengi beyaz */
 }
 
 .flip-card-back {
@@ -66,21 +55,44 @@
     transform: rotateY(180deg);
 }
 
-/* Resim ve içerik düzeni */
 .card-image {
-    width: calc(100% - 20px); /* Resmin genişliğini, yanlardan boşluk bırakacak şekilde ayarladık */
-    height: 45%; /* Resmin yüksekliğini %50'ye ayarladık */
+    width: calc(100% - 30px); /* Yanlardan biraz daha boşluk bırakıldı */
+    height: 45%; /* Resim oranı optimize edildi */
     object-fit: cover;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Daha belirgin gölge efekti */
-    margin: 0 10px 25px 10px;
-    filter: opacity(0.85); /* Resmin hafif soluk görünümü */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Resim gölgesi eklendi */
+    margin-bottom: 15px;
+    filter: opacity(0.9); /* Hafif opaklık ile şık bir görünüm sağlandı */
 }
 
-/* İçerik düzeni */
-.card-content {
-    padding: 15px; /* Kart içeriğine boşluk ekledik */
+.title {
+    font-size: 1.5em;
+    font-weight: 900;
     text-align: center;
-    color: #e0e0e0; /* Yazı rengini beyaz yaptık */
+    margin: 10px 0;
+    color: #e0e0e0; /* Yazı rengi beyaz */
+}
+
+.description {
+    font-size: 1em;
+    text-align: center;
+    color: #b0b0b0; /* Daha yumuşak renk */
+    margin: 5px 20px;
+}
+
+.project-section {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
+}
+
+.project-section h2 {
+    color: #4CAF50;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
 }

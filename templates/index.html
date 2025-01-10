@@ -1,0 +1,66 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ texts.page_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Varsayılan olarak normal (light) mode CSS -->
+    <link id="theme-css" rel="stylesheet" href="{{ url_for('static', filename='css/indexStyle.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Kart ve Grafik CSS (Dark Mode js için ID atıyoruz) -->
+    <link id="card-css" rel="stylesheet" href="{{ url_for('static', filename='css/cardStyle.css') }}">
+    <link id="graph-css" rel="stylesheet" href="{{ url_for('static', filename='css/graphStyle.css') }}">
+
+    <!-- Dark Mode JS -->
+    <script src="{{ url_for('static', filename='js/darkMode.js') }}" defer></script>
+    <!-- language.js artık kullanmıyoruz (istersen boş bırak) -->
+</head>
+<body>
+    <!-- Başlık ve Navbar -->
+    <header>
+        <div class="navbar">
+            <h1>{{ common.title }}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">{{ common.home }}</a></li>
+                    <li><a href="{{ url_for('hakkinda') }}">{{ common.about }}</a></li>
+                    <li><a href="{{ url_for('veriMadenciligi') }}">{{ common.data_mining }}</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Kontroller (Dil Seçimi + Dark Mode) -->
+    <div class="controls">
+        <!-- Dil seçimi -->
+        <form action="{{ url_for('change_language') }}" method="POST" style="display:inline;">
+            <label for="language">{{ common.language_label }}</label>
+            <select name="language" onchange="this.form.submit()">
+                <option value="tr" {% if session['lang'] == 'tr' %}selected{% endif %}>Türkçe</option>
+                <option value="en" {% if session['lang'] == 'en' %}selected{% endif %}>English</option>
+            </select>
+        </form>
+        <!-- Dark Mode -->
+        <button id="dark-mode-btn" onclick="toggleDarkMode()">{{ common.dark_mode_button }}</button>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main>
+        <section>
+            <h2 id="about-title">{{ texts.about_title }}</h2>
+            <p id="about-text">{{ texts.about_text }}</p>
+        </section>
+        <section>
+            <h2 id="data-mining-title">{{ texts.dm_title }}</h2>
+            <p id="data-mining-text">{{ texts.dm_text }}</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>{{ common.footer }}</p>
+    </footer>
+</body>
+</html>

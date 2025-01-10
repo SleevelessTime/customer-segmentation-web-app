@@ -1,8 +1,8 @@
 /* Genel Ayarlar */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: #f8f9fa;
+    color: #343a40;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -11,11 +11,11 @@ body {
 
 /* Başlık ve Navbar */
 header {
-    background: linear-gradient(90deg, #333, #555);
-    color: #f1f1f1;
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    color: white;
     text-align: center;
     padding: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
@@ -28,34 +28,34 @@ header {
     width: 100%;
 }
 
-h1 {
+.navbar h1 {
     margin: 0;
-    font-size: 1.5rem; /* Başlık boyutunu küçültüyoruz */
+    font-size: 1.5rem;
     font-weight: 700;
     text-align: left;
     flex-grow: 1;
 }
 
-nav ul {
+.navbar nav ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+.navbar nav ul li {
     margin-left: 20px;
 }
 
-nav ul li a {
-    color: #f1f1f1;
+.navbar nav ul li a {
+    color: white;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #4CAF50;
+.navbar nav ul li a:hover {
+    color: #333;
 }
 
 /* Kontroller */
@@ -64,33 +64,32 @@ nav ul li a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: #1c1c1c;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.language-selector label, 
-.language-selector select, 
-.dark-mode-toggle button {
+.controls select, 
+.controls button {
     font-size: 1rem;
     font-weight: 500;
     border: none;
     outline: none;
     padding: 8px 12px;
     border-radius: 5px;
-    color: #e0e0e0;
 }
 
-.language-selector select {
-    background-color: #2c2c2c;
+.controls select {
+    background-color: #f1f1f1;
 }
 
-.dark-mode-toggle button {
+.controls button {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.dark-mode-toggle button:hover {
+.controls button:hover {
     background-color: #45A049;
 }
 
@@ -101,29 +100,29 @@ main {
     padding: 0 20px;
 }
 
-h2 {
+main h2 {
     color: #4CAF50;
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 10px;
+
 }
 
-p {
+main p {
     font-size: 1rem;
-    color: #b0b0b0;
+    color: #555;
     margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
-    background-color: #1c1c1c;
-    color: #e0e0e0;
+    background-color: #333;
+    color: white;
     text-align: center;
     padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
 }
 
 footer p {
@@ -137,17 +136,17 @@ footer p {
         text-align: center;
     }
 
-    h1 {
+    .navbar h1 {
         font-size: 1.3rem;
         text-align: center;
     }
 
-    nav ul {
+    .navbar nav ul {
         flex-direction: column;
         margin-top: 10px;
     }
 
-    nav ul li {
+    .navbar nav ul li {
         margin-left: 0;
         margin-bottom: 10px;
     }

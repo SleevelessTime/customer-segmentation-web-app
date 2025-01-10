@@ -1,0 +1,102 @@
+<!-- templates/veriMadenciliği.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ texts.page_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Varsayılan (light) CSS -->
+    <link id="theme-css" rel="stylesheet" href="{{ url_for('static', filename='css/indexStyle.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link id="card-css" rel="stylesheet" href="{{ url_for('static', filename='css/cardStyle.css') }}">
+    <link id="graph-css" rel="stylesheet" href="{{ url_for('static', filename='css/graphStyle.css') }}">
+
+    <!-- Dark Mode JS -->
+    <script src="{{ url_for('static', filename='js/darkMode.js') }}" defer></script>
+    <!-- graphStyle.js (içerik sana kalmış, AJAX ile grafik çekme) -->
+    <script src="{{ url_for('static', filename='js/graphStyle.js') }}" defer></script>
+</head>
+<body>
+    <!-- Header - Navbar -->
+    <header>
+        <div class="navbar">
+            <h1>{{ common.title }}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">{{ common.home }}</a></li>
+                    <li><a href="{{ url_for('hakkinda') }}">{{ common.about }}</a></li>
+                    <li><a href="{{ url_for('veriMadenciligi') }}">{{ common.data_mining }}</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Kontroller -->
+    <div class="controls">
+        <form action="{{ url_for('change_language') }}" method="POST" style="display:inline;">
+            <label for="language">{{ common.language_label }}</label>
+            <select name="language" onchange="this.form.submit()">
+                <option value="tr" {% if session['lang'] == 'tr' %}selected{% endif %}>Türkçe</option>
+                <option value="en" {% if session['lang'] == 'en' %}selected{% endif %}>English</option>
+            </select>
+        </form>
+        <button id="dark-mode-btn" onclick="toggleDarkMode()">{{ common.dark_mode_button }}</button>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main>
+        <section id="graph-section">
+            <h2 id="graph-selection-title">{{ texts.graph_selection_title }}</h2>
+            <div class="graph-grid">
+                <button class="graph-btn" id="btn-scatter-4" onclick="showGraph('scatter-4-values')">
+                    {{ texts.btn_scatter_4 }}
+                </button>
+                <button class="graph-btn" id="btn-scatter-2" onclick="showGraph('scatter-2-values')">
+                    {{ texts.btn_scatter_2 }}
+                </button>
+                <button class="graph-btn" id="btn-confusion" onclick="showGraph('confusion-matrix')">
+                    {{ texts.btn_confusion }}
+                </button>
+                <button class="graph-btn" id="btn-feature" onclick="showGraph('feature-importance')">
+                    {{ texts.btn_feature }}
+                </button>
+                <button class="graph-btn" id="btn-correlation" onclick="showGraph('correlation-matrix')">
+                    {{ texts.btn_correlation }}
+                </button>
+                <button class="graph-btn" id="btn-profession" onclick="showGraph('profession-distribution')">
+                    {{ texts.btn_profession }}
+                </button>
+            </div>
+        </section>
+
+        <section id="graph-display">
+            <h2 id="graph-display-title">{{ texts.graph_display_title }}</h2>
+            <div id="graphCanvas" style="text-align:center; margin-top:20px;"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>{{ common.footer }}</p>
+    </footer>
+
+    <!-- AJAX ile grafik çekme -->
+    <script>
+    function showGraph(graphType) {
+        fetch(`/show_graph?graph_type=${graphType}`)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById("graphCanvas");
+                if (container) {
+                    container.innerHTML = `<img src="/${data.img_path}" alt="Grafik" style="max-width:80%; border:1px solid #ccc; border-radius:8px;" />`;
+                }
+            })
+            .catch(error => {
+                console.error("Grafik yüklenirken hata oluştu:", error);
+            });
+    }
+    </script>
+</body>
+</html>
